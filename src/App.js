@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [page]);
+  }, [fetchData]);
 
   const handleSearch = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
