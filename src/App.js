@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 import "./App.css";
 import { useState, useEffect, useCallback } from "react";
-import Skeleton from "react-skeleton";
 
 function App() {
   const [data, setData] = useState(null);
