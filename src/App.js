@@ -23,7 +23,7 @@ function App() {
         setData(result.results);
         setLoading(false);
       });
-  });
+  },[page]);
 
   useEffect(() => {
     fetchData();
