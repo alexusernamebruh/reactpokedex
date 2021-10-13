@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import LandingPage from "./Pages/Landing";
+import DetailsPage from "./Pages/Details";
 
 
 function App() {
@@ -19,10 +20,7 @@ function App() {
           <Route exact path="/" component={LandingPage}/>
 
       
-      <Route path="/pokemon/:name">
-        <div classname="aboutpath">
-        <h1>about</h1>
-        </div>
+      <Route path="/pokemon/:name" component={DetailsPage} >
       </Route>
       </Switch>
       </Router>
