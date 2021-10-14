@@ -29,8 +29,8 @@ export default function DetailsPage() {
         <div className='title-container'>
             <span className="pokemon-id">#{zeroFilled}</span>
             <h1>{name}</h1>
-            <p className='type'>Type:{' '}{pokemon.types.map((v,1)=>(
-                {pokemon.types.length -1 ? null: ', '}</p>
+            {/* <p className='type'>Type:{' '}{pokemon.types.map((v,1)=>(
+                {pokemon.types.length -1 ? null: ', '}</p> */}
         </div>
     </div>
 </div>
