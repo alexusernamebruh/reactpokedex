@@ -1,7 +1,17 @@
 // import logo from './logo.svg';
 import "./App.css";
-import { useState, useEffect, useCallback } from "react";
 
+<<<<<<< HEAD
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import LandingPage from "./Pages/Landing";
+import DetailsPage from "./Pages/Details";
+
+=======
 function App() {
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
@@ -28,73 +38,21 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+>>>>>>> 45e0a0cc5dccb14576db914c830425840c0c9059
 
-  const handleSearch = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
-      .then((resp) => resp.json())
-      .then((json) => {
-        setData([json]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setErr(`${input} is not a pokemon`);
-      });
-  };
-
-  useEffect(()=>{
-    if (!input) {
-      fetchData();
-    }
-  })
+function App() {
+ 
   return (
     <div className="App">
-      <div className="form">
-        <input
-          type="search"
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-          onKeyDown={(e)=>{
-            if (e.key === "Enter") {
-              handleSearch();
-            }
-          }}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LandingPage}/>
 
-      <div className="container">
-        {data
-          ? data.map((v, i) => {
-              return (
-                <div className="pokemon button">
-                  <p>{v.name}</p>
-                  <img
-                    src={`${spritePrefix}${v.name}.png`}
-                    alt="bruh why no loading"
-                  />
-                </div>
-              );
-            })
-          : null}
-      </div>
-      {err && <p className="error-message">{err}</p>}
-      <div className="pagination">
-        <button
-          disabled={page === 1 || loading}
-          className="button1"
-          onClick={() => setPage(page === 1 ? 1 : page - 1)}
-        >
-          Previous
-        </button>
-        <button
-          disabled={loading}
-          classname="button2"
-          onClick={() => setPage(page + 1)}
-        >
-          Next
-        </button>
-      </div>
-      <p className="page-number">Page {page}</p>
+      
+      <Route path="/pokemon/:name" component={DetailsPage} >
+      </Route>
+      </Switch>
+      </Router>
     </div>
   );
 }

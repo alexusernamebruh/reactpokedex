@@ -2,12 +2,28 @@
   display:grid;
   grid-template-columns: repeat(2,1fr);
   grid-gap:15px;
+  margin-left:39%;
+  width:20%;
   padding:15px;
+  
+  margin-top:5%;
+  margin-bottom:5%;
+  
+  
+  
 }
 
+
+
 .pokemon {
+  margin-top:45%;
+  
+  text-align:center;
   position:relative;
   height:120px;
+  display:flex;
+  align-items: flex-start;
+  
 }
 
 .pokemon img {
@@ -15,16 +31,64 @@
   bottom: 5px;
   right: 0;
   height: 110px;
+  
+ 
+
 }
+
+
+.aboutpath {
+  background-color: aqua;
+  text-align:center;
+}
+
+
 
 .pokemon p {
-  position: absolute;
+  
+  position:absolute;
+  width: 10%;
   top: 5px;
   left: 20px;
+  
 }
 
-.pokemon:hover {
+.pokemon img {
 
+position:absolute;
+
+bottom:5px;
+right:0;
+height:110px;
+transition-duration: 0.2;
+}
+
+
+.pokemon:hover img {
+  transform: scale(2) rotate(15deg);
+  animation-name: turning;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes turning {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(1.25) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+
+
+.pokemon:hover img {
+transform: scale(1.25) rotate(15deg);
 }
 .pagination {
   display:grid;
@@ -32,7 +96,7 @@
   grid-gap:15px;
   padding: 0, 15px;
 }
-/* let me unmute so communicate easy*/
+
 .button {
   border-radius:8px;
   padding:15px;
@@ -65,7 +129,7 @@
   text-align:center;
   font-size:18px;
   font-weight:600;
-  color:red;
+  color:rgb(5, 198, 59);
 
 }
 
@@ -86,7 +150,7 @@
 
 
 .form button {
-background-color:goldenrod;
+background-color:rgb(39, 178, 238);
 color:#fff;
 font-weight:800;
 border:none;
@@ -100,6 +164,9 @@ border-bottom-right-radius:8px;
   cursor:pointer;
 }
 .error-message {
+  display:flex;
+  flex-direction:column;
+  flex-flow: column;
   color:red;
   padding:0 15px;
   font-size:20px;
@@ -108,4 +175,54 @@ border-bottom-right-radius:8px;
   margin:0;
   margin-bottom:15px;
   font-weight:800px;
+}
+
+
+.pokemon-page {
+  background-color: #eee;
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  flex-direction:column;
+  padding-top:100px
+}
+
+.sprite-container {
+  height:240px;
+  width:240px;
+  position:relative;
+}
+
+
+
+.pokemon-page .circle {
+  height:100%;
+  width:100%;
+  background-color:rgb(213, 43, 43);
+  border-radius:50%;
+  position:absolute;
+  top:-5%;
+  left:0;
+}
+
+
+.pokemon-page .sprite {
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:-10%;
+  height:120%;
+  width:120%;
+}
+
+
+.title-container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:60%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
